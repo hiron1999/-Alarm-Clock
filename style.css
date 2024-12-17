@@ -1,0 +1,164 @@
+
+
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Let Bootstrap handle dark/light colors via variables */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+/* Clock Face */
+#clock {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  margin-bottom: 20px;
+  color: var(--bs-primary);
+  text-align: center;
+}
+
+/* Form Styling */
+.form-control {
+  max-width: 100px;
+  display: inline-block;
+}
+
+#alarm-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Alarm Card */
+.card {
+  background-color: var(--bs-card-bg);
+  border: 1px solid var(--bs-card-border-color);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  color: var(--bs-body-color);
+  text-align: center;
+}
+
+/* Alarm List Styling */
+#alarms-list {
+  margin-top: 20px;
+}
+
+.alarm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bs-body-bg);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid var(--bs-border-color);
+}
+
+.alarm-item button {
+  margin-left: 10px;
+}
+
+.alarm-item:hover {
+  background-color: var(--bs-light);
+  border-color: var(--bs-primary);
+}
+
+/* Buttons */
+button {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: var(--bs-btn-bg);
+  color: var(--bs-btn-color);
+}
+
+button:hover {
+  background-color: var(--bs-btn-hover-bg);
+  color: var(--bs-btn-hover-color);
+}
+
+/* Media Queries */
+
+/* Large Screens (1200px or more) */
+@media (min-width: 1200px) {
+  body {
+      margin: 0 auto;
+      max-width: 70%;
+      padding: 20px;
+  }
+
+  #clock {
+      font-size: 4rem; /* Larger clock for wide screens */
+      margin-bottom: 30px;
+  }
+
+  #alarm-form {
+      gap: 20px; /* Increase spacing for inputs */
+  }
+
+  .card {
+      padding: 20px;
+      margin-top: 20px;
+  }
+
+  .alarm-item {
+      font-size: 1.1rem; /* Larger text for alarms */
+      padding: 15px;
+  }
+}
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  #clock {
+      font-size: 2.5rem; /* Adjust clock size */
+  }
+
+  #alarm-form {
+      flex-direction: column; /* Stack inputs vertically */
+      align-items: stretch;
+  }
+
+  .form-control {
+      max-width: 100%; /* Make inputs full width */
+      margin-bottom: 10px;
+  }
+
+  button {
+      width: 100%; /* Make buttons full width */
+  }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  #clock {
+      font-size: 2rem; /* Smaller clock for smaller screens */
+  }
+
+  .card {
+      padding: 15px;
+  }
+
+  .alarm-item {
+      flex-direction: column; /* Stack alarm items */
+      align-items: stretch;
+  }
+
+  .alarm-item button {
+      width: 100%; /* Full width buttons for delete */
+      margin: 10px 0 0;
+  }
+}
