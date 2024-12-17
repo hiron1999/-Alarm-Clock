@@ -1,5 +1,12 @@
 
-
+:root {
+  --bs-body-bg: #f0f0f0; /* Light gray */
+  --bs-card-bg: #d5dada6b;
+}
+:root[data-bs-theme="dark"] {
+  --bs-body-bg: #121212; /* Dark gray */
+  --bs-card-bg: #eaf1f1e7;
+}
 /* General Styles */
 body {
   margin: 0;
@@ -15,15 +22,86 @@ body {
 
 /* Clock Face */
 #clock {
-  font-size: 3rem;
+  font-size: 2em;
+  
   font-weight: bold;
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
   margin-bottom: 20px;
-  color: var(--bs-primary);
+  color: var(--bs-gray);
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  gap:5%;
+  flex-wrap: wrap;
+  padding-bottom: 10vh;
+  
 }
 
+#clock > div{
+  border-top: 8px dashed rgba(72, 70, 70, 0.641);
+  width: 20%;
+  min-width: 68px;
+  /* background-color: black; */
+  /* border-radius: 5%; */
+  /* box-shadow: 10px 5px blue ; */
+  position: relative;
+}
+#clock >div div{
+  position: absolute;
+  border: 2px solid rgb(213, 212, 212);
+  /* z-index: 1; */
+  border-radius: 5%;
+  width: 100%;
+  min-width: 68px;
+  background-color:var(--bs-body-color);
+}
+.page{
+  border: 2px solid rgb(213, 212, 212);
+  z-index: 1;
+  width: 100%;
+  min-width: 68px;
+  /* background-color: black; */
+  border-radius: 5%;
+  align-content: center;
+  /* box-shadow: 10px 5px blue; */
+  animation: flip 1s cubic-bezier(0.63, 0, 0.38, 1.03) infinite  ;
+  animation-play-state: paused;
+  transform-origin:  top;
+  
+}
+
+
+
+@keyframes flip {
+  0%{
+    
+  transform:  rotateX(0deg) ;
+  background-color: var(--bs-body-bg)
+  }
+  25%{
+    /* opacity: 50%; */
+    transform: rotateX(90deg) ;
+    /* background-color: var(--bs-gray) ; */
+  }
+  
+  50%{
+    opacity: 100%;
+    transform: rotateX(180deg) ;
+    /* background-color: var(--bs-gray) ; */
+  }
+  75%{
+    opacity: 20%;
+    transform: rotateX(180deg) ;
+    background-color: var(--bs-gray) ;
+  }
+  100%{
+    
+    opacity: 0%;
+  transform:  rotateX(360deg) ;
+  background-color: var(--bs-gray) ;
+  }
+}
 /* Form Styling */
 .form-control {
   max-width: 100px;
@@ -40,18 +118,25 @@ body {
 
 /* Alarm Card */
 .card {
-  background-color: var(--bs-card-bg);
+  background-color: var(--bs-dark);
   border: 1px solid var(--bs-card-border-color);
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px var(--bs-gray);
 }
 
 .card h2 {
   font-size: 1.25rem;
-  color: var(--bs-body-color);
+  color: var(--bs-light);
   text-align: center;
+  font-weight: bold;
+  margin-bottom: 2em;
 }
 
+.h5{
+  text-align: center;
+  text-shadow: var(--bs-border-color) 2px 2px 15px;
+  font: 2em sans-serif;
+}
 /* Alarm List Styling */
 #alarms-list {
   margin-top: 20px;
@@ -61,7 +146,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bs-body-bg);
+  background-color: var(--bs-card-bg);
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;

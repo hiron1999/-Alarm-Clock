@@ -2,12 +2,19 @@
 const clock = document.getElementById("clock");
 const alarmForm = document.getElementById("alarm-form");
 const alarmsList = document.getElementById("alarms-list");
+const heading = document.getElementById("heading");
 // current date
 let Now = new Date();
 
+
+const dayName = Now.toUTCString().substring(0,15);
+heading.textContent=dayName;
 // Alarms array to store the set alarms
 let alarms = [];
-
+  //start animation
+  document.querySelectorAll(".page").forEach(page => {
+    page.style.animationPlayState = "running";
+  });
 //convert time format 
 function formatTime(current){
   const hours = (current.getHours() % 12 || 12).toString().padStart(2, '0'); // Convert to 12-hour format
@@ -20,11 +27,30 @@ function formatTime(current){
 // Update clock face every second
 function updateClock() {
   const Now = new Date();
+  const Next = new Date(Now.getTime()+1000);
   const currentTime=formatTime(Now);
-  clock.textContent =currentTime;
+  const FutureTime=formatTime(Next);
 
-  // Check if the current time matches any alarm
-  
+  // clock.textContent =currentTime;
+  //Set current page
+  const [hh,mm,rem] = currentTime.toString().split(":");
+  const [ ss,ap]=rem.split(" ");
+  document.getElementById("hh").textContent=hh;
+  document.getElementById("mm").textContent=mm;
+  document.getElementById("ss").textContent=ss;
+  document.getElementById("ap").textContent=ap;
+
+
+  //Set next page 
+  const [Nhh,Nmm,Nrem] = FutureTime.toString().split(":");
+  const [ Nss,Nap]=Nrem.split(" ");
+  document.getElementById("n-hh").textContent=Nhh;
+  document.getElementById("n-mm").textContent=Nmm;
+  document.getElementById("n-ss").textContent=Nss;
+  document.getElementById("n-ap").textContent=Nap;
+
+ 
+  // console.log(ss);
   // console.log(Now);
   // alert(`Alarm ringing! Time: ${currentTime}`);
   if (alarms.includes(Now.toString())) {
