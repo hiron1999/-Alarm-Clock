@@ -4,12 +4,14 @@
   --bs-card-bg: #d5dada6b;
   --bs-bb: rgba(72, 70, 70, 0.641);
   --bs-rbb: white;
+  --bs-fnt: black;
 }
 :root[data-bs-theme="dark"] {
   --bs-body-bg: #121212; /* Dark gray */
   --bs-card-bg: #eaf1f1e7;
   --bs-bb: rgba(246, 242, 242, 0.377);
   --bs-rbb: black;
+  --bs-fnt: white;
 }
 /* General Styles */
 body {
@@ -32,6 +34,7 @@ body {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
   /* margin-bottom: 20px; */
+  
   color: var(--bs-gray);
   text-align: center;
   display: flex;
@@ -43,7 +46,7 @@ body {
 }
 
 #clock > div{
-  border-top: 8px dashed var(--bs-bb);
+  border-top: 0.14em dashed var(--bs-bb);
   width: 20%;
   min-width: 68px;
   /* background-color: black; */
@@ -112,6 +115,7 @@ body {
   display: inline-block;
 }
 
+
 #alarm-form {
   display: flex;
   justify-content: center;
@@ -146,6 +150,7 @@ body {
   margin-top: 20px;
   height: 25vh;
   overflow-y: scroll;
+  padding: 2%;
 }
 
 .alarm-item {
@@ -153,7 +158,8 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: var(--bs-card-bg);
-  padding: 10px;
+  padding: 10%;
+  color: var(--bs-fnt);
   border-radius: 5px;
   margin-bottom: 10px;
   border: 1px solid var(--bs-border-color);
@@ -182,6 +188,46 @@ button:hover {
   color: var(--bs-btn-hover-color);
 }
 
+.btn-toggle {
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: auto;
+  background-color: var(--bs-gray-400);
+  border-radius: 2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-toggle:before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  width: 50%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 2em;
+  transition: transform 0.3s ease;
+}
+.btn-toggle img{
+  height: 2em;
+  padding: 0.4em;
+}
+
+input[type="checkbox"]:checked + .btn-toggle {
+  background-color: var(--bs-primary);
+}
+
+input[type="checkbox"]:checked + .btn-toggle:before {
+  transform: translateX(30px);
+}
+  
+  input[type="checkbox"] {
+    display: none;
+  }
 /* Media Queries */
 
 /* Large Screens (1200px or more) */

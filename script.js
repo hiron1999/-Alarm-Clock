@@ -26,7 +26,7 @@ function formatTime(current){
 }
 
 function animateClock(){
-  const Now = new Date();
+   Now = new Date();
   const Next = new Date(Now.getTime()+1000);
   const currentTime=formatTime(Now);
   const FutureTime=formatTime(Next);
@@ -74,8 +74,8 @@ function updateClock() {
   } 
   if (alarms.includes(Now.toString())) {
     console.log("alert");
-    alert(`Alarm ringing! Time: ${currentTime}`);
-    alarms = alarms.filter(alarm => alarm !== currentTime); // Remove the alarm after alerting
+    alert(`Alarm ringing! Time: ${formatTime(Now)}`);
+    alarms = alarms.filter(alarm => alarm !== Now.toString()); //Remove the alarm after alerting
     renderAlarms();
   }
 }
@@ -126,6 +126,7 @@ function renderAlarms() {
   });
 }
 
+
 const theme_mode = ["dark", "light"];
 function toggleTheame(){
   const domElement =document.documentElement;
@@ -133,3 +134,7 @@ function toggleTheame(){
   if(currentTheame === theme_mode[0]) domElement.setAttribute("data-bs-theme",theme_mode[1]);
   else domElement.setAttribute("data-bs-theme",theme_mode[0]);
 }
+
+//change theme
+const toggleBtn = document.getElementById("toggleButton");
+toggleBtn.addEventListener("click",toggleTheame);
