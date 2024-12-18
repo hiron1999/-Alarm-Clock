@@ -183,6 +183,7 @@ body {
 
 /* Buttons */
 button {
+  margin-top: 0.5em;
   border: none;
   padding: 8px 12px;
   cursor: pointer;
