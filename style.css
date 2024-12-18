@@ -14,8 +14,12 @@
   --bs-fnt: white;
 }
 /* General Styles */
+#heading{
+  margin: 3%;
+}
 body {
   margin: 0;
+  min-width: 240px;
   padding: 0;
   font-family: 'Arial', sans-serif;
 }
@@ -34,7 +38,7 @@ body {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
   /* margin-bottom: 20px; */
-  
+ 
   color: var(--bs-gray);
   text-align: center;
   display: flex;
@@ -48,23 +52,24 @@ body {
 #clock > div{
   border-top: 0.14em dashed var(--bs-bb);
   width: 20%;
+  height: 2em;
   min-width: 68px;
-  /* background-color: black; */
-  /* border-radius: 5%; */
-  /* box-shadow: 10px 5px blue ; */
+ 
   position: relative;
 }
 #clock >div div{
   position: absolute;
   border: 2.5px solid var(--bs-rbb);
   /* z-index: 1; */
+  height: 2em;
   border-radius: 5%;
   width: 100%;
-  min-width: 68px;
+  min-width: 80px;
   background-color:var(--bs-body-color);
+  position: absolute;
 }
 .page{
-  /* border: 4px dashed rgb(213, 212, 212); */
+ 
   z-index: 1;
   width: 90%;
   min-width: 68px;
@@ -89,13 +94,13 @@ body {
   25%{
     /* opacity: 50%; */
     transform: rotateX(90deg) ;
-    /* background-color: var(--bs-gray) ; */
+    
   }
   
   50%{
     opacity: 100%;
     transform: rotateX(180deg) ;
-    /* background-color: var(--bs-gray) ; */
+
   }
   75%{
     opacity: 20%;
@@ -111,6 +116,7 @@ body {
 }
 /* Form Styling */
 .form-control {
+  margin-top: 5%;
   max-width: 100px;
   display: inline-block;
 }
@@ -159,6 +165,7 @@ body {
   align-items: center;
   background-color: var(--bs-card-bg);
   padding: 10%;
+  font-size: 0.5em ;
   color: var(--bs-fnt);
   border-radius: 5px;
   margin-bottom: 10px;
@@ -283,6 +290,12 @@ input[type="checkbox"]:checked + .btn-toggle:before {
 @media (max-width: 480px) {
   #clock {
       font-size: 2rem; /* Smaller clock for smaller screens */
+      display: block;
+      height: 20vh;
+  }
+  #clock > div{
+    display: block;
+    width: 100%;
   }
 
   .card {
