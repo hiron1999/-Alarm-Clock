@@ -165,8 +165,9 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: var(--bs-card-bg);
-  padding: 10%;
+  padding: 0.8em;
   font-size: 0.5em ;
+  font-weight: bold;
   color: var(--bs-fnt);
   border-radius: 5px;
   margin-bottom: 10px;
