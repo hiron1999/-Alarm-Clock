@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html data-bs-theme="light">
     <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=0.8">
       <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Plaster&family=Sedan+SC&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Plaster&family=Sedan+SC&display=swap" rel="stylesheet">
       <Link rel="stylesheet" href="style.css"></Link>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <!-- Custom CSS -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
         <link rel="stylesheet" href="./style.css">
       </head>
       <body >
         <div class="container mt-5">
-          <h1 class="text-center mb-4">Alarm Clock</h1>
+          
       
           <!-- Clock Face -->
-          <div id="clock" class="text-center"></div>
-      
+          <div id="clock" class="text-center">
+          <div>
+
+            <div id="hh" class="page"></div>
+            <div id="n-hh" class="nextpage"></div>
+          </div>
+          <div>
+
+            <div id="mm" class="page"></div>
+            <div id="n-mm" class="nextpage"></div>
+          </div>
+          <div>
+
+            <div id="ss" class="page"></div>
+            <div id="n-ss" class="nextpage"></div>
+          </div>
+          <div>
+
+            <div id="ap" class="page"></div>
+            <div id="n-ap" class="nextpage"></div>
+          </div>
+          </div>
+          <h1  id="heading" class="text-center mb-4">Alarm Clock</h1>
           <!-- Alarm Form -->
           <div class="card shadow-sm p-4 mb-4">
-            <h2 class="h5">Set Alarm</h2>
+            <h2 class="h5">Shedule Here</h2>
+            <!-- change theame  -->
+             <div>
+            <input type="checkbox" id="toggleButton">
+            <label for="toggleButton" class="btn-toggle">
+              <img id="moon" src="icons/moon-solid.svg" alt="moon"/>
+              <img id="sun" src="icons/sun-solid.svg" alt="moon"/>
+            </label>
+            </div>
             <form id="alarm-form">
               <input type="number" id="hours" class="form-control" placeholder="HH" min="1" max="12" required>
               <input type="number" id="minutes" class="form-control" placeholder="MM" min="0" max="59" >
@@ -32,7 +67,7 @@
           </div>
       
           <!-- Alarms List -->
-          <div>
+          <div class="card shadow-sm p-4 mb-4">
             <h2 class="h5">Alarms List</h2>
             <div id="alarms-list" class="list-group"></div>
           </div>
