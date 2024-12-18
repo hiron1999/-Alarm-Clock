@@ -24,8 +24,8 @@ function formatTime(current){
   const currentTime = `${hours}:${minutes}:${seconds} ${ampm}`;
   return currentTime;
 }
-// Update clock face every second
-function updateClock() {
+
+function animateClock(){
   const Now = new Date();
   const Next = new Date(Now.getTime()+1000);
   const currentTime=formatTime(Now);
@@ -49,10 +49,29 @@ function updateClock() {
   document.getElementById("n-ss").textContent=Nss;
   document.getElementById("n-ap").textContent=Nap;
 
+  document.getElementById("hh").style.display = hh == Nhh ? "none" : "block";
+  document.getElementById("mm").style.display = mm == Nmm ? "none" : "block";
+  document.getElementById("ss").style.display = ss == Nss ? "none" : "block";
+  document.getElementById("ap").style.display = ap == Nap ? "none" : "block";
+  // console.log(document.getElementById("hh").style.animationPlayState);
+
+}
+// Update clock face every second
+function updateClock() {
+  
+ animateClock();
+
  
   // console.log(ss);
   // console.log(Now);
   // alert(`Alarm ringing! Time: ${currentTime}`);
+  if(alarms.length==0){
+    const alarmSpace =document.getElementById("alarms-list");
+    alarmSpace.innerHTML = "No alarm set";
+    alarmSpace.style.color='white';
+    alarmSpace.style.textAlign='center';
+    alarmSpace.style.fontSize='2em';
+  } 
   if (alarms.includes(Now.toString())) {
     console.log("alert");
     alert(`Alarm ringing! Time: ${currentTime}`);
