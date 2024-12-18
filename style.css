@@ -15,7 +15,8 @@
 }
 /* General Styles */
 #heading{
-  margin: 3%;
+  margin: 0.5em;
+  padding: 0.4em;
 }
 body {
   margin: 0;
